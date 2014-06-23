@@ -1,0 +1,15 @@
+# Heroku
+alias h="heroku"
+
+# Git
+alias commit="git add -A && git commit -am $1"
+
+# gc      => git checkout master
+# gc bugs => git checkout bugs
+function gc {
+  if [ -z "$1" ]; then
+    git checkout master
+  else
+    git checkout $1
+  fi
+}

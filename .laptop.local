@@ -1,0 +1,17 @@
+#!/bin/sh
+
+brew tap caskroom/cask
+brew install brew-cask
+
+brew cask install dropbox
+brew cask install onepassword
+brew cask install adium
+brew cask install evernote
+brew cask install google-chrome
+brew cask install spotify
+brew cask install flux
+brew cask install alfred
+brew cask install iterm2
+brew cask install totalterminal
+
+# smyck, inconsolata, caps lock, repeat speed, janus, trackpad
