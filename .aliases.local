@@ -3,6 +3,7 @@ alias h="heroku"
 
 # Git
 alias commit="git add -A && git commit -am $1"
+alias gs="git status"
 
 # gc      => git checkout master
 # gc bugs => git checkout bugs

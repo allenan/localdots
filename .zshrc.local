@@ -13,3 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH=".git/safe/../../bin:/Users/andrew/.bin:/Users/andrew/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+
+# Golang config
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
