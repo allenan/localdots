@@ -18,5 +18,9 @@ brew cask install flux
 brew cask install alfred
 brew cask install iterm2
 brew cask install totalterminal
+brew cask install tower
+brew cask install sequel-pro
+brew cask install sublime-text
+brew cask install droplr
 
 # smyck, inconsolata, caps lock, repeat speed, janus, trackpad

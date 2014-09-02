@@ -17,3 +17,10 @@ export PATH=".git/safe/../../bin:/Users/andrew/.bin:/Users/andrew/.rbenv/shims:/
 # Golang config
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:$HOME/.rbenv/bin
+
+eval "$(rbenv init -)"
+
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib

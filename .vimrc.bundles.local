@@ -5,4 +5,5 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'rking/ag.vim'
 Bundle 'fatih/vim-go'
-Bundle "ekalinin/Dockerfile.vim"
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'burnettk/vim-angular'
