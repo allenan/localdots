@@ -1,26 +1,26 @@
 #!/bin/sh
 
-brew tap caskroom/cask
-brew install brew-cask
+#brew tap caskroom/cask
+#brew install brew-cask
 
-brew cask install hipchat
-brew cask install skype
-brew cask install transmission
-brew cask install rescuetime
-brew cask install vlc
-brew cask install dropbox
-brew cask install onepassword
-brew cask install adium
-brew cask install evernote
-brew cask install google-chrome
-brew cask install spotify
-brew cask install flux
-brew cask install alfred
-brew cask install iterm2
-brew cask install totalterminal
-brew cask install tower
-brew cask install sequel-pro
-brew cask install sublime-text
-brew cask install droplr
+#brew cask install hipchat
+#brew cask install skype
+#brew cask install transmission
+#brew cask install rescuetime
+#brew cask install vlc
+#brew cask install dropbox
+#brew cask install onepassword
+#brew cask install adium
+#brew cask install evernote
+#brew cask install google-chrome
+#brew cask install spotify
+#brew cask install flux
+#brew cask install alfred
+#brew cask install iterm2
+#brew cask install totalterminal
+#brew cask install tower
+#brew cask install sequel-pro
+#brew cask install sublime-text
+#brew cask install droplr
 
-# smyck, inconsolata, caps lock, repeat speed, janus, trackpad
+## smyck, inconsolata, caps lock, repeat speed, janus, trackpad

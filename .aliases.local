@@ -1,5 +1,6 @@
 # Heroku
 alias h="heroku"
+alias p="padrino"
 
 # Git
 alias commit="git add -A && git commit -am $1"
@@ -14,3 +15,8 @@ function gc {
     git checkout $1
   fi
 }
+
+alias getfortune='wget --timeout=3 -O - -q'
+alias fortune='getfortune http://www.iheartquotes.com/api/v1/random?max_lines=5\&min_lines=2\&show_permalink=false\&show_source=0'
+
+alias unpry="LC_CTYPE=C LANG=C find -E ./ -type f -regex ".*rb$" -exec sed -i '' -e '/binding.pry/d' {} \;"

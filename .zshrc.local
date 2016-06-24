@@ -6,11 +6,12 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git heroku)
+plugins=(git gitfast git-flow fasd heroku tmuxinator rake rake-fast rails httpie)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+alias comp="docker-compose"
 
 export PATH=".git/safe/../../bin:/Users/andrew/.bin:/Users/andrew/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
@@ -24,3 +25,31 @@ export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init -)"
 
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/andrewallen/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+alias c=docker-compose
+
+export CALIBRE="/opt/homebrew-cask/Caskroom/calibre/2.22.0/calibre.app/Contents/MacOS"
+export PATH="$CALIBRE:$PATH"
+
+export LATEX="/usr/local/texlive/2014/bin/x86_64-darwin"
+export PATH="$LATEX:$PATH"
+
+export EPUBCHECK="/opt/epubcheck-3.0"
+export PATH="$EPUBCHECK:$PATH"
+
+alias redis="redis-server /usr/local/etc/redis.conf"
+
+alias gsweep='git branch --merged master | command grep -vE "^(\*|\s*develop\s*|\s*master\s*$)" | command xargs -n 1 git branch -d'
+
+alias gb="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(authorname) | (%(color:green)%(committerdate:relative)%(color:reset))| %(contents:subject) ' | column -t -s '|'"
+
+alias bx="bundle exec"
+
+# Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"

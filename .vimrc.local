@@ -1,4 +1,4 @@
-set relativenumber
+"set relativenumber
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -6,8 +6,17 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-set colorcolumn=        "turn off color column
+"http://vim.wikia.com/wiki/Mac_OS_X_clipboard_sharing
+set clipboard=unnamed
+
 colorscheme smyck
+
+"colorcolumn settings
+"http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
+highlight ColorColumn guibg=#303030 ctermbg=236
+"let &colorcolumn=join(range(81,999),",")
+let &colorcolumn="80,".join(range(120,999),",")
+"set colorcolumn=        "turn off color column
 
 au BufNewFile,BufRead *.ng.erb set filetype=erb
 
@@ -17,3 +26,119 @@ set winminwidth=15
 set winheight=5
 set winminheight=5
 set winheight=999
+
+":let g:airline_theme='serene'
+
+"Make Y behave like C and D
+noremap Y y$
+
+"Map semicolon to colon to make it easier to type commands
+"nmap ; :
+
+:imap <C-C> <Plug>snipMateNextOrTrigger
+:smap <C-C> <Plug>snipMateNextOrTrigger
+
+
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"start up behavior
+autocmd VimEnter *
+      \   if !argc()
+      \ |   Startify
+      \ |   NERDTree
+      \ |   wincmd w
+      \ | endif
+
+let g:startify_custom_header =
+      \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
+
+runtime macros/matchit.vim
+
+let g:expand_region_text_objects = {
+      \ 'iw'  :0,
+      \ 'iW'  :0,
+      \ 'i"'  :0,
+      \ 'i''' :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'il'  :0,
+      \ }
+
+call expand_region#custom_text_objects({
+      \ 'a]' :1,
+      \ 'ab' :1,
+      \ 'aB' :1,
+      \ 'ir' :1,
+      \ 'ar' :1,
+      \ })
+
+      "\ 'i]'  :1,
+      "\ 'ib'  :1,
+      "\ 'iB'  :1,
+      "\ 'a]' :1,
+      "\ 'ab' :1,
+      "\ 'aB' :1,
+      "\ 'im' :0,
+      "\ 'am' :0,
+let g:expand_region_text_objects_ruby = {
+      \ 'il'  :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'ir' :1,
+      \ 'ar' :1,
+      \ 'im' :0,
+      \ 'am' :0,
+      \ }
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+"set wildignore+=*.png,*.svg,*.jpg
+" Ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'file': '\v\.(png|svg|jpg)$'
+  \ }
+
+map <Leader>n :NERDTreeToggle<CR>
+
+"http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+"nmap <Leader>z :ZoomWin<CR>
+"nmap <Leader><Leader> :NERDTreeClose<CR>:ZoomWin<CR>
+
+imap <C-Space> <Esc>
+
+" Asciidoc
+autocmd BufNewFile,BufRead *.asc
+  \ setlocal syntax=asciidoc filetype=asciidoc spell
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType asciidoc,asc call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
